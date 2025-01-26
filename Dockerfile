@@ -20,5 +20,5 @@ ENV STREAMLIT_SERVER_ENABLECORS=false
 # Exponieren des Streamlit-Ports
 EXPOSE 8501
 
-# Starten der Streamlit-App
+# Starten der App
 CMD ["streamlit", "run", "main.py"]
