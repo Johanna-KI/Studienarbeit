@@ -33,6 +33,7 @@ Klonen Sie das Repository auf Ihren Computer:
 ```bash
 git clone https://github.com/Johanna-KI/lagersystem.git
 cd lagersystem
+```
 
 ### **2. Ausführung der Anwendung**
 
@@ -45,15 +46,19 @@ Falls Docker noch nicht installiert ist, folgen Sie der Anleitung auf der offizi
 Erstellen Sie das Docker-Image, indem Sie im Projektverzeichnis den folgenden Befehl ausführen:
 ```bash
 docker build -t lagersystem .
+```
 
 ##### **Schritt 2.3: Container starten**
 Starten Sie den Docker-Container mit dem folgenden Befehl:
 ```bash
 docker run -p 8501:8501 lagersystem
+```
 
 ##### **Schritt 2.4: Anwendung im Browser öffnen**
 Öffnen Sie Ihren Browser und navigieren Sie zu:
-[Website](http://localhost:8501)
+[WebApp](http://localhost:8501)
+
+--
 
 
 #### **Option 2: Python verwenden**
@@ -67,25 +72,30 @@ Erstellen Sie eine virtuelle Umgebung und aktivieren Sie sie:
 ```bash
 # Virtuelle Umgebung erstellen
 python -m venv venv
+
 # Virtuelle Umgebung aktivieren
 # Windows
 venv\Scripts\activate
+
 # Mac/Linux
 source venv/bin/activate
+```
 
 ##### **Schritt 2.3: Requirements installieren**
 Installieren Sie die benötigten Python-Pakete mit pip:
 ```bash
 pip install -r requirements.txt
+```
 
 ##### **Schritt 2.4: Anwendung starten**
 Starten Sie die Streamlit-Anwendung:
 ```bash
 streamlit run main.py
+```
 
 ##### **Schritt 2.5: Anwendung im Browser öffnen**
 Nach dem Starten der Anwendung öffnet sich ein neuer Browser-Tab oder Sie können die Anwendung über den folgenden Link aufrufen:
-[Website](http://localhost:8501)
+[WebApp](http://localhost:8501)
 
 
 
