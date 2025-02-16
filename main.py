@@ -219,9 +219,9 @@ st.markdown("""
             font-family: 'Arial', sans-serif;
         }
         
-
+        /* Titel in der Box */
         .login-title {
-            font-size: 32px; /* Erhöht die Schriftgröße */
+            font-size: 32px; 
             font-weight: bold;
             color: #003366;
             margin-bottom: 50px;
