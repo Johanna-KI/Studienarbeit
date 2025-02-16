@@ -1,24 +1,20 @@
-# Basis-Image mit Python
-FROM python:3.11.9
+# Basis-Image mit Python 3.10
+FROM python:3.10
 
-# Arbeitsverzeichnis im Container erstellen und festlegen
-WORKDIR /studienarbeit
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /app
 
-# Kopieren der Abhängigkeitsdatei und Installation der Abhängigkeiten
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Installiere System-Abhängigkeiten (einschließlich SQLite-Paket)
+RUN apt-get update && apt-get install -y sqlite3 && rm -rf /var/lib/apt/lists/*
 
-# Kopieren der App und der Datenbankdatei
-COPY main.py main.py
-COPY lagerbestand.db lagerbestand.db
+# Kopiere die Abhängigkeitsdateien in den Container
+COPY requirements.txt ./
 
-# Umgebungsvariablen für Streamlit konfigurieren
-ENV STREAMLIT_SERVER_PORT=8501
-ENV STREAMLIT_SERVER_HEADLESS=true
-ENV STREAMLIT_SERVER_ENABLECORS=false
+# Installiere die Abhängigkeiten
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Exponieren des Streamlit-Ports
-EXPOSE 8501
+# Kopiere den Rest des Codes
+COPY . .
 
-# Starten der App
-CMD ["streamlit", "run", "main.py"]
+# Setze das Startkommando für die Streamlit-App
+CMD ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
