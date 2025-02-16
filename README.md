@@ -42,19 +42,14 @@ cd lagersystem
 ##### **Schritt 2.1: Docker installieren**
 Falls Docker noch nicht installiert ist, folgen Sie der Anleitung auf der offiziellen Docker-Website: [Docker installieren](https://docs.docker.com/get-docker/).
 
-##### **Schritt 2.2: Docker-Image erstellen**
-Erstellen Sie das Docker-Image, indem Sie im Projektverzeichnis den folgenden Befehl ausführen:
+##### **Schritt 2.2: Docker-Image erstellen und Container starten**
+Erstellen Sie das Docker-Image, indem Sie im Projektverzeichnis den folgenden Befehl ausführen: 
+(WICHTIG: Die Docker Desktop App muss währenddessen laufen)
 ```bash
-docker build -t lagersystem .
+docker-compose up --build
 ```
 
-##### **Schritt 2.3: Container starten**
-Starten Sie den Docker-Container mit dem folgenden Befehl:
-```bash
-docker run -p 8501:8501 lagersystem
-```
-
-##### **Schritt 2.4: Anwendung im Browser öffnen**
+##### **Schritt 2.3: Anwendung im Browser öffnen**
 Öffnen Sie Ihren Browser und navigieren Sie zu:
 [WebApp](http://localhost:8501)
 
