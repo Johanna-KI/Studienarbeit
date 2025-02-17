@@ -1,0 +1,193 @@
+2025-02-16 19:45:43,10862460,chris,Anmeldung erfolgreich
+2025-02-16 19:59:31,10862460,chris,Login erfolgreich
+2025-02-16 19:59:50,10862460,chris,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-16 20:00:03,10862460,chris,Ware entfernen: Erfolg: Ware 12345 entfernt.
+2025-02-16 20:00:18,10862460,chris,Automatenzugabe: Erfolg: Ware 123 in Automat verschoben.
+2025-02-16 20:00:27,10862460,chris,Automatenentfernung: Erfolg: Ware 1234 zurück ins Lager.
+2025-02-16 20:01:23,,,Login fehlgeschlagen
+2025-02-16 20:01:42,,,Registrierung erfolgreich
+2025-02-16 20:01:42,25612485,chris,Registrierung erfolgreich
+2025-02-16 20:01:50,,,Logout erfolgreich
+2025-02-17 11:00:46,10862460,chris,Login erfolgreich
+2025-02-17 11:00:51,10862460,chris,Logout erfolgreich
+2025-02-17 11:01:05,,,Registrierung fehlgeschlagen
+2025-02-17 11:01:05,,,Benutzername vergeben
+2025-02-17 11:01:14,,,Registrierung erfolgreich
+2025-02-17 11:01:14,45853153,,Registrierung erfolgreich
+2025-02-17 11:01:59,45853153,,Ware entfernen: Erfolg: Ware 1234 entfernt.
+2025-02-17 11:03:39,45853153,Logout erfolgreich
+2025-02-17 11:03:54,,Registrierung erfolgreich
+2025-02-17 11:03:54,96176353,Registrierung erfolgreich
+2025-02-17 11:04:20,96176353,Automatenentfernung: Erfolg: Ware 123 zurück ins Lager.
+2025-02-17 11:04:27,96176353,Ware entfernen: Erfolg: Ware 123 entfernt.
+2025-02-17 11:04:37,96176353,Logout erfolgreich
+2025-02-17 11:05:42,20841735,Registrierung erfolgreich
+2025-02-17 11:05:55,20841735,Logout erfolgreich
+2025-02-17 11:06:03,20841735,Login erfolgreich
+2025-02-17 11:06:11,20841735,Logout erfolgreich
+2025-02-17 11:08:29,10862460,Login erfolgreich
+2025-02-17 11:08:40,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 11:08:49,10862460,Automatenzugabe: Fehler: test (Barcode: 12) ist abgelaufen und kann nicht in den Automaten verschoben werden!
+2025-02-17 11:08:51,10862460,Automatenzugabe: Fehler: test (Barcode: 12) ist abgelaufen und kann nicht in den Automaten verschoben werden!
+2025-02-17 11:21:27,10862460,Login erfolgreich
+2025-02-17 11:21:35,10862460,Automatenzugabe: Fehler: test (Barcode: 12) ist abgelaufen und kann nicht in den Automaten verschoben werden!
+2025-02-17 11:22:53,10862460,Automatenzugabe: Fehler: test (Barcode: 12) ist abgelaufen und kann nicht in den Automaten verschoben werden!
+2025-02-17 11:22:57,10862460,Automatenzugabe: Fehler: test (Barcode: 12) ist abgelaufen und kann nicht in den Automaten verschoben werden!
+2025-02-17 11:23:07,10862460,Automatenzugabe: Fehler: test (Barcode: 12) ist abgelaufen und kann nicht in den Automaten verschoben werden!
+2025-02-17 11:29:13,10862460,Login erfolgreich
+2025-02-17 11:33:58,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 11:34:01,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 11:34:03,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 11:34:06,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 11:34:45,10862460,Logout erfolgreich
+2025-02-17 11:34:52,10862460,Login erfolgreich
+2025-02-17 11:35:06,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 11:35:08,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 11:35:10,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 11:35:12,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 11:44:46,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 11:44:48,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 11:48:30,10862460,Login erfolgreich
+2025-02-17 11:55:04,10862460,Login erfolgreich
+2025-02-17 11:55:14,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 11:55:16,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 11:55:20,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 11:55:26,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 11:55:28,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 11:55:29,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten verschoben.
+2025-02-17 12:00:01,10862460,Login erfolgreich
+2025-02-17 12:01:30,10862460,Login erfolgreich
+2025-02-17 12:01:41,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:01:44,10862460,Ware hinzufügen: Fehler: Barcode 12 existiert bereits!
+2025-02-17 12:01:49,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:01:53,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:01:59,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:02:00,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:02:04,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:04:57,10862460,Login erfolgreich
+2025-02-17 12:05:05,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:05:07,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:05:08,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:05:11,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:05:13,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:05:14,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:10:10,10862460,Login erfolgreich
+2025-02-17 12:10:17,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:10:19,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:10:21,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:10:27,10862460,Medikament test (Barcode: 12) zum Warenkorb hinzugefügt
+2025-02-17 12:10:34,10862460,Medikament test (Barcode: 123) zum Warenkorb hinzugefügt
+2025-02-17 12:10:35,10862460,Bestellung 561176 aufgegeben mit Medikamenten: 
+2025-02-17 12:12:11,10862460,"Bestellung 561176 storniert, Medikamente zurück ins Lager: test, test"
+2025-02-17 12:18:16,10862460,Login erfolgreich
+2025-02-17 12:18:27,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:18:29,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:18:31,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 12:19:32,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:19:33,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:19:35,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:19:39,10862460,Automatenentfernung: Erfolg: Ware 12 zurück ins Lager.
+2025-02-17 12:19:48,10862460,Medikament test (Barcode: 123) zum Warenkorb hinzugefügt
+2025-02-17 12:19:53,10862460,Medikament test (Barcode: 1234) zum Warenkorb hinzugefügt
+2025-02-17 12:20:00,10862460,Bestellung 252549 aufgegeben mit Medikamenten: 
+2025-02-17 12:21:11,10862460,"Bestellung 252549 storniert, Medikamente zurück ins Lager: test, test"
+2025-02-17 12:23:43,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:23:44,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten verschoben.
+2025-02-17 12:23:47,10862460,Medikament test (Barcode: 12) zum Warenkorb hinzugefügt
+2025-02-17 12:23:52,10862460,Medikament test (Barcode: 123) zum Warenkorb hinzugefügt
+2025-02-17 12:24:32,10862460,Bestellung 714109 aufgegeben mit Medikamenten: 
+2025-02-17 12:24:36,10862460,"Bestellung 714109 storniert, Medikamente zurück ins Lager: test, test"
+2025-02-17 12:36:01,10862460,Logout erfolgreich
+2025-02-17 12:37:29,10862460,Login erfolgreich
+2025-02-17 12:40:04,10862460,Login erfolgreich
+2025-02-17 12:41:18,10862460,Logout erfolgreich
+2025-02-17 12:41:24,10862460,Login erfolgreich
+2025-02-17 12:42:08,10862460,Login erfolgreich
+2025-02-17 12:44:56,10862460,Login erfolgreich
+2025-02-17 12:53:42,10862460,Login erfolgreich
+2025-02-17 12:54:14,10862460,Login erfolgreich
+2025-02-17 12:56:25,10862460,Login erfolgreich
+2025-02-17 14:59:44,10862460,Login erfolgreich
+2025-02-17 15:30:06,10862460,Login erfolgreich
+2025-02-17 15:30:20,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:30:24,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 15:30:28,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:30:47,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten (Kanal: Kanal 1) verschoben.
+2025-02-17 15:31:02,10862460,Automatenzugabe: Fehler: Kanal Kanal 1 ist bereits mit test (Barcode: 12) belegt!
+2025-02-17 15:32:14,10862460,Automatenzugabe: Fehler: Kanal Kanal 1 ist bereits mit test (Barcode: 12) belegt!
+2025-02-17 15:32:25,10862460,Automatenzugabe: Fehler: Kanal Kanal 1 ist bereits mit test (Barcode: 12) belegt!
+2025-02-17 15:39:33,10862460,Login erfolgreich
+2025-02-17 15:39:44,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:39:46,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:39:49,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 15:41:42,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten (Kanal: Kanal 1) verschoben.
+2025-02-17 15:41:50,10862460,Automatenzugabe: Erfolg: Ware test in den Automaten (Kanal: Kanal 1) verschoben.
+2025-02-17 15:41:55,10862460,Automatenzugabe: Erfolg: Ware test2 in den Automaten (Kanal: Kanal 1) verschoben.
+2025-02-17 15:45:00,10862460,Login erfolgreich
+2025-02-17 15:45:12,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:45:15,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 15:45:18,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:46:52,10862460,Login erfolgreich
+2025-02-17 15:48:13,10862460,Automatenzugabe: Erfolg: Ware test2 wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 15:48:17,10862460,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 15:48:19,10862460,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 15:56:03,10862460,Login erfolgreich
+2025-02-17 15:56:13,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:56:16,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:56:19,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 15:56:22,10862460,Ware hinzufügen: Erfolg: test2 hinzugefügt.
+2025-02-17 15:56:41,10862460,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 15:56:42,10862460,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 15:56:44,10862460,Automatenzugabe: Erfolg: Ware test2 wurde in den Automaten verschoben (Kanal: Kanal 2).
+2025-02-17 15:56:46,10862460,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 15:57:05,10862460,Automatenentfernung: Erfolg: Ware 12 aus Kanal Kanal 1 entfernt und zurück ins Lager gelegt.
+2025-02-17 15:58:55,10862460,Login erfolgreich
+2025-02-17 16:00:25,10862460,Login erfolgreich
+2025-02-17 16:03:03,10862460,Automatenzugabe: Erfolg: Ware test2 wurde in den Automaten verschoben (Kanal: Kanal 2).
+2025-02-17 16:04:05,10862460,Automatenzugabe: Erfolg: Ware test2 wurde in den Automaten verschoben (Kanal: Kanal 2).
+2025-02-17 16:04:06,10862460,Automatenentfernung: Erfolg: Ware 1233 aus Kanal Kanal 2 entfernt und zurück ins Lager gelegt.
+2025-02-17 16:04:16,10862460,Automatenzugabe: Erfolg: Ware test2 wurde in den Automaten verschoben (Kanal: Kanal 2).
+2025-02-17 16:04:19,10862460,Automatenentfernung: Erfolg: Ware 1233 aus Kanal Kanal 2 entfernt und zurück ins Lager gelegt.
+2025-02-17 16:04:25,10862460,Automatenzugabe: Erfolg: Ware test2 wurde in den Automaten verschoben (Kanal: Kanal 2).
+2025-02-17 16:05:15,10862460,Ware hinzufügen: Erfolg: Voltaren hinzugefügt.
+2025-02-17 16:05:22,10862460,Automatenzugabe: Erfolg: Ware Voltaren wurde in den Automaten verschoben (Kanal: Kanal 3).
+2025-02-17 16:05:47,10862460,Medikament Voltaren (Barcode: 12345) zum Warenkorb hinzugefügt
+2025-02-17 16:05:52,10862460,Bestellung 652122 aufgegeben mit Medikamenten: 
+2025-02-17 16:07:14,10862460,"Bestellung 652122 storniert, Medikamente zurück ins Lager: Voltaren"
+2025-02-17 16:07:22,10862460,Logout erfolgreich
+2025-02-17 16:07:27,10862460,Login erfolgreich
+2025-02-17 16:08:30,10862460,Ware hinzufügen: Erfolg: test hinzugefügt.
+2025-02-17 16:08:46,10862460,Ware hinzufügen: Fehler: Barcode 123 existiert bereits!
+2025-02-17 16:08:55,10862460,Ware hinzufügen: Erfolg: test3 hinzugefügt.
+2025-02-17 16:09:16,10862460,Ware entfernen: Erfolg: Ware 123 entfernt.
+2025-02-17 16:10:33,10862460,Ware entfernen: ❌ Fehler: Ware 1233 ist im Automaten und kann nicht gelöscht werden!
+2025-02-17 16:10:56,10862460,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 16:11:14,10862460,Automatenentfernung: Erfolg: Ware 12 aus Kanal Kanal 1 entfernt und zurück ins Lager gelegt.
+2025-02-17 16:11:19,10862460,Automatenentfernung: Fehler: Ware 1233333 nicht im Automaten!
+2025-02-17 16:11:34,10862460,Medikament test2 (Barcode: 1233) zum Warenkorb hinzugefügt
+2025-02-17 16:11:46,10862460,Medikament test2 (Barcode: 1233) zum Warenkorb hinzugefügt
+2025-02-17 16:11:50,10862460,Bestellung 714878 aufgegeben mit Medikamenten: 
+2025-02-17 16:12:00,10862460,"Bestellung 714878 storniert, Medikamente zurück ins Lager: test2"
+2025-02-17 16:13:13,10862460,Logout erfolgreich
+2025-02-17 16:13:22,,Login fehlgeschlagen
+2025-02-17 16:13:25,,Login fehlgeschlagen
+2025-02-17 16:13:28,,Login fehlgeschlagen
+2025-02-17 16:13:38,,Login fehlgeschlagen
+2025-02-17 16:13:40,,Login fehlgeschlagen
+2025-02-17 16:13:43,,Login fehlgeschlagen
+2025-02-17 16:13:58,,Login fehlgeschlagen
+2025-02-17 16:14:01,81926023,Login erfolgreich
+2025-02-17 16:14:21,81926023,Automatenzugabe: Erfolg: Ware test wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 16:14:30,81926023,Medikament test (Barcode: 12333) zum Warenkorb hinzugefügt
+2025-02-17 16:14:32,81926023,Bestellung 748419 aufgegeben mit Medikamenten: 
+2025-02-17 16:14:47,81926023,Automatenzugabe: Fehler: Ware 12333 nicht im Lagerbestand!
+2025-02-17 16:17:19,10862460,Login erfolgreich
+2025-02-17 16:17:27,10862460,Logout erfolgreich
+2025-02-17 16:17:36,55599402,Registrierung erfolgreich
+2025-02-17 16:17:54,55599402,Automatenzugabe: Erfolg: Ware Voltaren wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 16:17:59,55599402,Automatenentfernung: Erfolg: Ware 12345 aus Kanal Kanal 1 entfernt und zurück ins Lager gelegt.
+2025-02-17 16:18:00,55599402,Automatenzugabe: Erfolg: Ware Voltaren wurde in den Automaten verschoben (Kanal: Kanal 1).
+2025-02-17 16:18:05,55599402,❌ Fehler: Medikament 1234 ist nicht im Automaten und kann nicht in den Warenkorb gelegt werden!
+2025-02-17 16:18:13,55599402,✅ Medikament Voltaren (Barcode: 12345) zum Warenkorb hinzugefügt
+2025-02-17 16:18:16,55599402,📦 Bestellung 563002 aufgegeben mit Medikamenten: Voltaren
+2025-02-17 16:18:24,55599402,Logout erfolgreich
