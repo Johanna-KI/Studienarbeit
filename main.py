@@ -1,10 +1,7 @@
 import streamlit as st
 import pandas as pd
-import sqlite3
 import bcrypt
 import time
-import csv
-import random
 from datetime import datetime
 from admin import Admin
 from anmeldung import Anmeldung
@@ -111,17 +108,21 @@ if "authenticated" not in st.session_state:
 # **Login- oder Registrierungsanzeige**
 if not st.session_state.authenticated:
     
-    # Die Überschrift ist jetzt innerhalb der Box!
+    # **Überschrift in der Box**
     st.markdown('<p class="login-title">Lagersystem Anmeldung</p>', unsafe_allow_html=True)
 
     tab1, tab2, tab3 = st.tabs(["🔑 Benutzer-Login", "🆕 Registrierung", "🔐 Admin-Login"])
 
-    # **Login-Bereich**
+    # **Benutzer-Login**
     with tab1:
         username = st.text_input("Benutzername", key="login_username")
         password = st.text_input("Passwort", type="password", key="login_password")
 
         if st.button("🔑 Anmelden"):
+            """
+            Authentifiziert den Benutzer anhand des eingegebenen Benutzernamens und Passworts.
+            Falls die Anmeldedaten korrekt sind, wird die Sitzung aktualisiert.
+            """
             user_data = anmeldung.get_user(username)
             if user_data and anmeldung.verify_password(password, user_data[1]):
                 st.session_state.authenticated = True
@@ -135,12 +136,16 @@ if not st.session_state.authenticated:
                 datenbank.log_aktion("🚫 User-Login fehlgeschlagen")
                 st.toast("🚫 Falscher Benutzername oder Passwort!", icon="🚫")
 
-    # **Registrierungs-Bereich**
+    # **Benutzer-Registrierung**
     with tab2:
         new_username = st.text_input("Neuer Benutzername", key="register_username")
         new_password = st.text_input("Neues Passwort", type="password", key="register_password")
 
         if st.button("🆕 Registrieren"):
+            """
+            Erstellt einen neuen Benutzer mit einem eindeutigen Benutzernamen und Passwort.
+            Falls erfolgreich, wird die Sitzung aktualisiert und der Benutzer eingeloggt.
+            """
             if new_username and new_password:
                 kundennummer, message = anmeldung.register_user(new_username, new_password)
                 if kundennummer:
@@ -152,7 +157,7 @@ if not st.session_state.authenticated:
                     time.sleep(0.75)
                     st.rerun()
                 else:
-                    st.toast(message, icon="🚫")  # 🚫 Zeigt eine Fehlermeldung an, falls der Benutzername existiert!
+                    st.toast(message, icon="🚫")  # 🚫 Fehlermeldung anzeigen
             else:
                 datenbank.log_aktion("🚫 Registrierung fehlgeschlagen")
                 st.toast("⚠️ Bitte alle Felder ausfüllen!", icon="⚠️")
@@ -163,6 +168,10 @@ if not st.session_state.authenticated:
         admin_password = st.text_input("Admin Passwort", type="password")
 
         if st.button("🔐 Admin-Anmelden"):
+            """
+            Verifiziert den Admin-Zugang mit Benutzername und Passwort.
+            Nur Benutzer mit Admin-Rechten können sich erfolgreich anmelden.
+            """
             admin_data = anmeldung.get_user(admin_username)
             if admin_data and bcrypt.checkpw(admin_password.encode(), admin_data[1].encode()) and admin_data[2] == "admin":
                 st.session_state.authenticated = True

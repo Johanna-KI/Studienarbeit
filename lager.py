@@ -1,48 +1,61 @@
-import streamlit as st
 import pandas as pd
 import sqlite3
-import bcrypt
-import time
-import csv
-import random
 from datetime import datetime
 from warnung import Warnung  # Ensure you import the Warnung class
 from datenbank import Datenbank
 
 class Lager:
+    """
+    Diese Klasse verwaltet den Lagerbestand eines Unternehmens.
+    Sie ermöglicht das Hinzufügen, Entfernen und Abfragen von Waren.
+    """
+    
     def __init__(self):
+        """
+        Initialisiert die Lagerklasse mit einer Verbindung zur SQLite-Datenbank,
+        einer Warnungsinstanz und einer Datenbankinstanz.
+        """
         self.db_conn = sqlite3.connect('lagerbestand.db', check_same_thread=False)
         self.cursor = self.db_conn.cursor()
         self.warnung = Warnung()  # Instantiate Warnung to access its methods
         self.datenbank = Datenbank()
 
     def ware_hinzufuegen(self, barcode, name, verfallsdatum, ort='Lager'):
-        """Fügt eine Ware zum Lagerbestand hinzu, aber blockiert doppelte Barcodes in offenen Bestellungen."""
+        """
+        Fügt eine Ware zum Lagerbestand hinzu, falls sie nicht bereits existiert und
+        nicht in einer offenen Bestellung enthalten ist.
+
+        :param barcode: Der eindeutige Barcode des Produkts
+        :param name: Name des Produkts
+        :param verfallsdatum: Ablaufdatum im Format 'YYYY-MM-DD'
+        :param ort: Lagerort (Standard: 'Lager')
+        :return: Eine Erfolgsmeldung oder eine Fehlermeldung
+        """
         try:
             if not barcode or not name or not verfallsdatum:
                 return "🚫 Fehler: Alle Felder müssen ausgefüllt sein!"
 
-            # 🔍 Überprüfen, ob der Barcode bereits in einer offenen Bestellung ist
+            # Prüfen, ob der Barcode bereits in einer offenen Bestellung ist
             self.cursor.execute("SELECT COUNT(*) FROM bestellungen WHERE barcode = ? AND status = 'Offen'", (barcode,))
             offene_bestellung = self.cursor.fetchone()[0]
 
             if offene_bestellung > 0:
                 return "🚫 Fehler: Dieser Barcode ist in einer offenen Bestellung und kann nicht erneut hinzugefügt werden!"
 
-            # 🔍 Überprüfen, ob der Barcode bereits existiert
+            # Prüfen, ob der Barcode bereits existiert
             self.cursor.execute("SELECT * FROM lagerbestand WHERE barcode = ?", (barcode,))
             row = self.cursor.fetchone()
 
             if row:
                 return f"🚫 Fehler: Barcode {barcode} existiert bereits im Lager!"
 
-            # 📅 Überprüfen des Datumsformats (YYYY-MM-DD)
+            # Überprüfung des Datumsformats
             try:
                 datetime.strptime(verfallsdatum, '%Y-%m-%d')
             except ValueError:
                 return "⚠️ Fehler: Verfallsdatum muss im Format YYYY-MM-DD sein!"
 
-            # ✅ Medikament hinzufügen
+            # Medikament hinzufügen
             self.cursor.execute(
                 "INSERT INTO lagerbestand (barcode, name, menge, verfallsdatum, ort) VALUES (?, ?, 1, ?, ?)", 
                 (barcode, name, verfallsdatum, ort)
@@ -56,14 +69,15 @@ class Lager:
         except Exception as e:
             return f"🚫 Fehler: {str(e)}"
 
-
-
     def ware_entfernen(self, barcode):
-        """Entfernt eine Ware nur, wenn sie im Lager ist. Medikamente im Automaten können nicht gelöscht werden."""
+        """
+        Entfernt eine Ware aus dem Lagerbestand, falls sie nicht in einem Automaten gespeichert ist.
+
+        :param barcode: Der Barcode der zu entfernenden Ware
+        :return: Eine Erfolgsmeldung oder eine Fehlermeldung
+        """
         try:
-            # Überprüfen, ob der Barcode überhaupt eingegeben wurde
             if not barcode:
-                print("\033[91m" + "🚫 Fehler: Barcode darf nicht leer sein!" + "\033[0m")
                 return "🚫 Fehler: Barcode darf nicht leer sein!"
             
             # Überprüfen, ob das Medikament im Lager ist
@@ -73,50 +87,51 @@ class Lager:
             if row:
                 ort = row[0]
                 if ort == "Lager":
-                    # Ware aus dem Lager entfernen
                     self.cursor.execute("DELETE FROM lagerbestand WHERE barcode = ?", (barcode,))
                     self.db_conn.commit()
-                    print("\033[92m" + f"✅ Erfolg: Ware {barcode} aus dem Lager entfernt." + "\033[0m")
                     message = f"✅ Erfolg: Ware {barcode} aus dem Lager entfernt."
                 else:
-                    # Fehler, wenn sich die Ware im Automaten befindet
-                    print("\033[91m" + f"🚫 Fehler: Ware {barcode} ist im Automaten und kann nicht gelöscht werden!" + "\033[0m")
                     message = f"🚫 Fehler: Ware {barcode} ist im Automaten und kann nicht gelöscht werden!"
             else:
-                # Fehler, wenn der Barcode nicht im System gefunden wurde
-                print("\033[91m" + f"🚫 Fehler: Barcode {barcode} nicht im Lagersystem gefunden!" + "\033[0m")
                 message = f"🚫 Fehler: Barcode {barcode} nicht im Lagersystem gefunden!"
-
         except sqlite3.OperationalError:
-            # Datenbank-Betriebsfehler (z. B. Verbindungsverlust)
-            print("\033[91m" + "🚫 Fehler: Datenbank ist nicht verfügbar!" + "\033[0m")
             message = "🚫 Fehler: Datenbank ist nicht verfügbar!"
-
         except sqlite3.IntegrityError:
-            # Datenbank-Integritätsfehler (z. B. Probleme mit Constraints)
-            print("\033[91m" + "🚫 Fehler: Integritätsproblem in der Datenbank!" + "\033[0m")
             message = "🚫 Fehler: Integritätsproblem in der Datenbank!"
-
         except Exception as e:
-            # Allgemeiner Fehlerfall
-            print("\033[91m" + f"🚫 Unbekannter Fehler: {str(e)}" + "\033[0m")
             message = f"🚫 Unbekannter Fehler: {str(e)}"
         
-        # Aktion protokollieren und Rückgabe der Nachricht
         self.datenbank.log_aktion(f"Ware entfernen: {message}")
         return message
     
     def get_artikel_anzahl(self):
+        """
+        Gibt eine DataFrame mit der Anzahl der vorhandenen Artikel zurück.
+
+        :return: Pandas DataFrame mit den Spalten Name und Menge
+        """
         self.cursor.execute("SELECT name, SUM(menge) as total FROM lagerbestand GROUP BY name")
         data = self.cursor.fetchall()
-        return pd.DataFrame(data, columns=["Name", "Menge"])  # Jetzt hat die Abfrage nur zwei Spalten
+        return pd.DataFrame(data, columns=["Name", "Menge"])
     
     def get_artikel_namen(self):
+        """
+        Gibt eine Liste mit den Namen aller im Lager vorhandenen Artikel zurück.
+
+        :return: Liste mit Artikelnamen
+        """
         self.cursor.execute("SELECT DISTINCT name FROM lagerbestand")
         data = self.cursor.fetchall()
-        return [row[0] for row in data]  # Extrahiert nur die Namen in eine Liste
+        return [row[0] for row in data]
     
     def get_lagerbestand(self, barcode_filter=None, ort_filter=None):
+        """
+        Ruft den aktuellen Lagerbestand ab, mit optionalen Filtern für Barcode und Ort.
+        
+        :param barcode_filter: Optionaler Filter für Barcode (Substring-Suche)
+        :param ort_filter: Optionaler Filter für Lagerort ('Lager' oder 'Automat')
+        :return: Pandas DataFrame mit den Lagerdaten
+        """
         self.warnung._pruefe_warnungen()
         
         query = "SELECT barcode, name, menge, verfallsdatum, ort, kanal FROM lagerbestand WHERE 1=1"

@@ -1,23 +1,33 @@
 import streamlit as st
 import pandas as pd
 import sqlite3
-import bcrypt
-import time
-import csv
 import random
 from datetime import datetime
 from datenbank import Datenbank
 
 
 class Automat:
+    """
+    Eine Klasse zur Verwaltung eines Medikamentenautomaten.
+    Diese Klasse ermöglicht das Hinzufügen und Entfernen von Waren,
+    das Verwalten von Bestellungen und die Kommunikation mit einer SQLite-Datenbank.
+    """
     def __init__(self):
+        """
+        Initialisiert die Automat-Klasse und stellt eine Verbindung zur Datenbank her.
+        """
         self.db_conn = sqlite3.connect('lagerbestand.db', check_same_thread=False)
         self.cursor = self.db_conn.cursor()
         self.datenbank = Datenbank()
         self.kanal_liste = []
 
     def ware_zum_automaten_hinzufuegen(self, barcode):
-        """Verschiebt eine Ware aus dem Lager in den Automaten, falls sie nicht abgelaufen ist."""
+        """
+        Verschiebt eine Ware aus dem Lager in den Automaten, falls sie nicht abgelaufen ist.
+        
+        :param barcode: Der Barcode der Ware, die verschoben werden soll.
+        :return: Eine Nachricht über das Ergebnis der Operation.
+        """
         try:
             # Überprüfen, ob der Barcode überhaupt eingegeben wurde
             if not barcode:
@@ -86,7 +96,12 @@ class Automat:
 
 
     def ware_aus_automaten_entfernen(self, barcode):
-        """Entfernt eine Ware aus dem Automaten und legt sie zurück ins Lager."""
+        """
+        Entfernt eine Ware aus dem Automaten und legt sie zurück ins Lager.
+        
+        :param barcode: Der Barcode der Ware, die entfernt werden soll.
+        :return: Eine Nachricht über das Ergebnis der Operation.
+        """
         try:
             # Überprüfen, ob der Barcode überhaupt eingegeben wurde
             if not barcode:
@@ -144,7 +159,12 @@ class Automat:
         return message
     
     def ware_zum_warenkorb_hinzufuegen(self, barcode):
-        """Fügt ein Medikament in den Warenkorb hinzu, wenn es im Automaten ist und nicht abgelaufen ist."""
+        """
+        Fügt eine Ware in den Warenkorb hinzu, wenn sie sich im Automaten befindet und nicht abgelaufen ist.
+        
+        :param barcode: Der Barcode der Ware, die hinzugefügt werden soll.
+        :return: Eine Nachricht über das Ergebnis der Operation.
+        """
         try:
             # Überprüfen, ob der Barcode überhaupt eingegeben wurde
             if not barcode:
@@ -208,7 +228,13 @@ class Automat:
 
 
     def bestellung_abschicken(self, kundennummer):
-        """Speichert eine Warenkorb-Bestellung mit einer gemeinsamen Bestellgruppen-ID und entfernt Medikamente aus dem Automaten."""
+        """
+        Speichert eine Warenkorb-Bestellung mit einer gemeinsamen Bestellgruppen-ID
+        und entfernt Medikamente aus dem Automaten.
+        
+        :param kundennummer: Die Kundennummer für die Bestellung.
+        :return: Eine Nachricht über das Ergebnis der Bestellung.
+        """
         try:
             # Überprüfen, ob die Kundennummer eingegeben wurde
             if not kundennummer:
@@ -279,7 +305,13 @@ class Automat:
 
 
     def get_bestellungen_gruppiert(self, kundennummer, status='Offen'):
-        """Ruft alle Bestellungen eines Kunden ab und gruppiert sie nach Bestellgruppen-ID."""
+        """
+        Ruft alle Bestellungen eines Kunden ab und gruppiert sie nach Bestellgruppen-ID.
+        
+        :param kundennummer: Die Kundennummer des Kunden.
+        :param status: Der Bestellstatus (Standard: 'Offen').
+        :return: Ein DataFrame mit den gruppierten Bestellungen.
+        """
         self.cursor.execute("""
             SELECT bestellgruppe_id, GROUP_CONCAT(name, ', ') AS medikamente, bestelldatum, status
             FROM bestellungen
@@ -292,17 +324,31 @@ class Automat:
         return pd.DataFrame(data, columns=["Bestell-ID", "Medikamente", "Bestelldatum", "Status"])
     
     def get_kanal_liste(self):
-        """Gibt eine Liste aller gespeicherten Kanäle zurück."""
+        """
+        Gibt eine Liste aller gespeicherten Kanäle zurück.
+        
+        :return: Eine Liste der belegten Kanäle.
+        """
         return list(self.kanal_liste.keys())
 
     def get_belegte_kanaele(self):
-        """Holt die Liste der belegten Kanäle im Automaten."""
+        """
+        Holt die Liste der belegten Kanäle im Automaten.
+        
+        :return: Eine Liste mit belegten Kanalnamen.
+        """
         self.cursor.execute("SELECT DISTINCT kanal FROM lagerbestand WHERE ort = 'Automat' AND kanal IS NOT NULL")
         return [row[0] for row in self.cursor.fetchall()]
     
 
     def bestellung_stornieren(self, bestellgruppe_id, kundennummer):
-        """Storniert eine gesamte Bestellung mit einer Bestellgruppen-ID und setzt den Status auf 'Storniert'."""
+        """
+        Storniert eine gesamte Bestellung mit einer Bestellgruppen-ID und setzt den Status auf 'Storniert'.
+        
+        :param bestellgruppe_id: Die ID der Bestellgruppe, die storniert werden soll.
+        :param kundennummer: Die Kundennummer des Kunden.
+        :return: Eine Nachricht über das Ergebnis der Stornierung.
+        """
         try:
             # Überprüfen, ob die Bestellgruppen-ID und die Kundennummer eingegeben wurden
             if not bestellgruppe_id or not kundennummer:

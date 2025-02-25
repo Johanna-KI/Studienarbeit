@@ -1,14 +1,19 @@
 import streamlit as st
-import pandas as pd
 import sqlite3
-import bcrypt
 import time
 import csv
-import random
 from datetime import datetime
 
 class Datenbank:
+    """
+    Diese Klasse verwaltet die Datenbankverbindungen und -operationen für das Lager- und Bestellsystem.
+    """
+    
     def __init__(self):
+        """
+        Initialisiert die Datenbankverbindung und ruft die Methode zur Erstellung der Tabellen auf.
+        Erstellt eine SQLite-Datenbank für die Lager- und Automatenbestände sowie Benutzerverwaltung.
+        """
         start_time = time.time()
         self.db_conn = sqlite3.connect('lagerbestand.db', check_same_thread=False)
         self.cursor = self.db_conn.cursor()
@@ -17,6 +22,10 @@ class Datenbank:
         print(f"Datenbankinitialisierung: {time.time() - start_time:.5f} Sekunden")
     
     def _initialize_database(self):
+        """
+        Erstellt die erforderlichen Tabellen, falls sie nicht existieren.
+        Dazu gehören Tabellen für Lagerbestand, Automatenbestand, Warnungen und Bestellungen.
+        """
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS lagerbestand (
                 barcode TEXT PRIMARY KEY,
@@ -58,8 +67,9 @@ class Datenbank:
             )
         """)
 
-
         self.db_conn.commit()
+        
+        # Benutzer-Datenbank erstellen
         with sqlite3.connect('users.db') as conn:
             cursor = conn.cursor()
             cursor.execute('''
@@ -74,6 +84,11 @@ class Datenbank:
             conn.commit()
 
     def log_aktion(self, aktion):
+        """
+        Protokolliert eine Aktion im Log-Protokoll.
+
+        :param aktion: Beschreibung der durchgeführten Aktion
+        """
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         kundennummer = st.session_state.get("kundennummer", "Unbekannt")
         log_entry = [timestamp, kundennummer, aktion]
