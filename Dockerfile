@@ -1,21 +1,20 @@
-# Basis-Image mit Python 3.10
-FROM python:3.10
+# Offizielles Python-Image als Basis nutzen
+FROM python:3.9
 
-# Setze das Arbeitsverzeichnis im Container
+# Arbeitsverzeichnis setzen
 WORKDIR /app
 
-# Installiere System-Abhängigkeiten (einschließlich SQLite)
-RUN apt-get update && apt-get install -y sqlite3 && rm -rf /var/lib/apt/lists/*
+# Alle Dateien in den Container kopieren
+COPY . /app
 
-# Kopiere requirements.txt und installiere Python-Abhängigkeiten
-COPY requirements.txt ./
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Sicherstellen, dass 'pip' und 'setuptools' aktuell sind
+RUN pip install --no-cache-dir --upgrade pip setuptools
 
-# Kopiere den gesamten Code in den Container
-COPY ./src/lagersystem ./src/lagersystem
+# Abhängigkeiten aus pyproject.toml installieren
+RUN pip install --no-cache-dir .
 
-# Setze PYTHONPATH, damit src/lagersystem importierbar ist
-ENV PYTHONPATH="/app/src"
+# Port für Streamlit freigeben
+EXPOSE 8501
 
 # Setze das Startkommando für die Streamlit-App
 CMD ["streamlit", "run", "src/lagersystem/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
