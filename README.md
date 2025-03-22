@@ -7,7 +7,6 @@ Dieses Projekt ist eine Streamlit-Anwendung, die ein Lagersystem für Medikament
 ## **Funktionen**
 
 - **Hinzufügen von Waren**: Neue Medikamente in den Lagerbestand aufnehmen.
-- **Mengen aktualisieren**: Die Menge eines Medikaments im Lagerbestand ändern.
 - **Automaten befüllen**: Medikamente aus dem Lagerbestand in den Automatenbestand verschieben.
 - **Bestellungen**: Medikamente aus dem Automatenbestand entnehmen.
 - **Löschen von Waren**: Medikamente aus dem Lager- oder Automatenbestand entfernen.
@@ -79,13 +78,13 @@ source venv/bin/activate
 ##### **Schritt 2.3: Requirements installieren**
 Installieren Sie die benötigten Python-Pakete mit pip:
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ##### **Schritt 2.4: Anwendung starten**
 Starten Sie die Streamlit-Anwendung:
 ```bash
-streamlit run main.py
+streamlit run "src/lagersystem/main.py"
 ```
 
 ##### **Schritt 2.5: Anwendung im Browser öffnen**
